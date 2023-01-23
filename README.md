@@ -9,8 +9,9 @@ Install Volta ([https://volta.sh](https://volta.sh)) with `curl https://get.volt
 ## Installation
 
 1. Run `volta install node`. It will install/use the version of node that is pinned to this project (see package.json "volta"). The specific node version was pinned with `volta pin node@19.4`
-2. Run `yarn install`
-3. Success!
+2. Run `volta install yarn`
+3. Run `yarn install`
+4. Success!
 
 ## What's included
 
@@ -46,17 +47,18 @@ Install Volta ([https://volta.sh](https://volta.sh)) with `curl https://get.volt
 
 ## How this project was set up
 
-1. `yarn create next-app --typescript` to install Next.js
+1. `yarn create next-app --typescript` to install Ne[](https://)xt.js
 2. `volta pin node@19.4` to add a specific version of Node in package.json, which Volta can use to decide which version to run in the project directory
-3. `npx install-peerdeps --dev eslint-config-airbnb ` to install Airbnb eslint config
-4. `yarn add -D eslint-config-airbnb-typescript typescript-eslint/eslint-plugin@^5.13.0 @typescript-eslint/parser@^5.0.0` to install Airbnb TS eslint config
-5. `yarn add -D prettier eslint-config-prettier ` to install Prettier and Prettier config for eslint
-6. `npx husky-init && yarn   ` to install husky
-7. `yarn add -D @commitlint/cli @commitlint/config-conventional  ` to install commitlint
-8. `echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js` to create the config file for commitlint
-9. `npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'` to add linting on commit messages in Husky
-10. Edit .husky/pre-commit and add `npx next lint`, replacing the existing command (usually `npm test`)
-11. .eslintrc.json in root:
+3. `volta pin yarn@1.22.19` to add a specific version of Yarn in package.json, which Volta can use to decide which version to run in the project directiory
+4. `npx install-peerdeps --dev eslint-config-airbnb ` to install Airbnb eslint config
+5. `yarn add -D eslint-config-airbnb-typescript typescript-eslint/eslint-plugin@^5.13.0 @typescript-eslint/parser@^5.0.0` to install Airbnb TS eslint config
+6. `yarn add -D prettier eslint-config-prettier ` to install Prettier and Prettier config for eslint
+7. `npx husky-init && yarn   ` to install husky
+8. `yarn add -D @commitlint/cli @commitlint/config-conventional  ` to install commitlint
+9. `echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js` to create the config file for commitlint
+10. `npx husky add .husky/commit-msg  'npx --no -- commitlint --edit ${1}'` to add linting on commit messages in Husky
+11. Edit .husky/pre-commit and add `npx next lint`, replacing the existing command (usually `npm test`)
+12. .eslintrc.json in root:
 
 ```
 {
