@@ -6,13 +6,6 @@ This is a barebones Next project with volta, eslint (using airbnbs ruleset), hus
 
 Install Volta ([https://volta.sh](https://volta.sh)) with `curl https://get.volta.sh | bash`
 
-## Installation
-
-1. Run `volta install node`. It will install/use the version of node that is pinned to this project (see package.json "volta"). The specific node version was pinned with `volta pin node@19.4`
-2. Run `volta install yarn`
-3. Run `yarn install`
-4. Success!
-
 ## What's included
 
 - [Next.js](https://nextjs.org) - React Framework[](https://)
@@ -22,36 +15,14 @@ Install Volta ([https://volta.sh](https://volta.sh)) with `curl https://get.volt
 - [Husky](https://typicode.github.io/husky/#/) - Allows running commands on [Git hooks](https://git-scm.com/docs/githooks), such as `pre-commit` and `commit-msg`
 - [commitlint](https://commitlint.js.org/#/) - Linter for commit messages (following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) standard in this project)
 
-## Configuring your IDE
-
-### Webstorm
-
-1. Settings > Tools > Actions On Save > Check eslint and Prettier
-
-### Visual Studio Code
-
-1. Install [Prettier - Code formatter plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-   1. Settings > Editor: Format On Save > Check
-2. Install [Eslint plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-   1. Workspace settings > Code Actions On Save > settings.json
-   2. Add:
-
-```
-{
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.validate": ["javascript"]
- }
-```
-
 ## How this project was set up
 
 1. `yarn create next-app --typescript` to install Ne[](https://)xt.js
 2. `volta pin node@19.4` to add a specific version of Node in package.json, which Volta can use to decide which version to run in the project directory
 3. `volta pin yarn@1.22.19` to add a specific version of Yarn in package.json, which Volta can use to decide which version to run in the project directiory
 4. `npx install-peerdeps --dev eslint-config-airbnb ` to install Airbnb eslint config
-5. `yarn add -D eslint-config-airbnb-typescript typescript-eslint/eslint-plugin@^5.13.0 @typescript-eslint/parser@^5.0.0` to install Airbnb TS eslint config
+5. `yarn add -D eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin@^5.13.0
+   @typescript-eslint/parser@^5.0.0` to install Airbnb TS eslint config
 6. `yarn add -D prettier eslint-config-prettier ` to install Prettier and Prettier config for eslint
 7. `npx husky-init && yarn   ` to install husky
 8. `yarn add -D @commitlint/cli @commitlint/config-conventional  ` to install commitlint
@@ -82,7 +53,7 @@ Install Volta ([https://volta.sh](https://volta.sh)) with `curl https://get.volt
 }
 ```
 
-9. .prettierrc.json in root:
+13. .prettierrc.json in root:
 
 ```
 {
@@ -93,3 +64,33 @@ Install Volta ([https://volta.sh](https://volta.sh)) with `curl https://get.volt
 }
 
 ```
+
+## Configuring your IDE
+
+### Webstorm
+
+1. Settings > Tools > Actions On Save > Check eslint and Prettier
+
+### Visual Studio Code
+
+1. Install [Prettier - Code formatter plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+   1. Settings > Editor: Format On Save > Check
+2. Install [Eslint plugin](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+   1. Workspace settings > Code Actions On Save > settings.json
+   2. Add:
+
+```
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"]
+ }
+```
+
+## Making the project ready to run
+
+1. Run `volta install node`. It will install/use the version of node that is pinned to this project (see package.json "volta"). The specific node version was pinned with `volta pin node@19.4`
+2. Run `volta install yarn`
+3. Run `yarn install`
+4. Success!
