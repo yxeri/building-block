@@ -12,71 +12,31 @@ Install Volta ([https://volta.sh](https://volta.sh)) with `curl https://get.volt
 - [Airbnb Eslint config](https://www.npmjs.com/package/eslint-config-airbnb) - A pre-configured set of rules for Eslint
 - [Airbnb Typescript Eslint config](https://www.npmjs.com/package/eslint-config-airbnb-typescript) - A pre-configured set of rules for Eslint that covers Typescript
 - [Eslint Prettier config](https://github.com/prettier/eslint-config-prettier) - A pre-configured set of rules for Eslint that disabled some formatting rules to avoid collisions when using Prettier together with Eslint
-- [Husky](https://typicode.github.io/husky/#/) - Allows running commands on [Git hooks](https://git-scm.com/docs/githooks), such as `pre-commit` and `commit-msg`
+- [Husky](https://typicode.github.io/husky/#/) - Allows running commands on [Git hooks](https://git-scm.com/docs/githooks), such as `pre-commit`, `commit-msg` and `pre-push`
 - [commitlint](https://commitlint.js.org/#/) - Linter for commit messages (following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) standard in this project)
 - [lint-staged](https://github.com/okonet/lint-staged) - Allows linting to be done only on staged files
 
 ## How this project was set up
 
-1. `yarn create next-app --typescript` to install Ne[](https://)xt.js
+1. `yarn create next-app --typescript` to install Next.js
 2. `volta pin node@19.4` to add a specific version of Node in package.json, which Volta can use to decide which version to run in the project directory
 3. `volta pin yarn@1.22.19` to add a specific version of Yarn in package.json, which Volta can use to decide which version to run in the project directory
 4. `volta install node` to install the specific version of Node.
 5. `volta install yarn` to install the specific version of Yarn.
 6. `npx install-peerdeps --dev eslint-config-airbnb ` to install Airbnb eslint config
-7. `yarn add -D eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin
-@typescript-eslint/parser` to install Airbnb TS eslint config
+7. `yarn add -D eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser` to install Airbnb TS eslint config
 8. `yarn add -D prettier eslint-config-prettier ` to install Prettier and Prettier config for eslint
 9. `yarn add -D lint-staged` to install lint-staged
-10. `npx husky-init && yarn   ` to install husky
-11. `yarn add -D @commitlint/cli @commitlint/config-conventional  ` to install commitlint
-12. `echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js` to create the config file for commitlint
-13. `yarn husky add .husky/commit-msg  'yarn commitlint --edit ${1}'` to add linting on commit messages in Husky
-14. `yarn husky add .husky/pre-push 'yarn build'` to add a check that building the project works before trying to push new code to the repo
-15. Edit .husky/pre-commit and add `yarn lint-staged`, replacing the existing command (usually `npm test`)
-16. .eslintrc.json in root:
-
-```
-{
-  "extends": [
-    "airbnb",
-    "airbnb-typescript",
-    "prettier"
-  ],
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "rules": {
-    "react/prop-types": 0,
-    "react/jsx-props-no-spreading": 0,
-    "react/function-component-definition": 0,
-    "import/prefer-default-export": 0,
-    "react/react-in-jsx-scope": 0,
-    "react/require-default-props": 0
-  },
-  "ignorePatterns": ["*.config.js"]
-}
-```
-
-13. .prettierrc.json in root:
-
-```
-{
-  "trailingComma": "all",
-  "tabWidth": 2,
-  "semi": true,
-  "singleQuote": true
-}
-```
-
-14. .lintstagedrc.json in root:
-
-```
-{
-  "*.{js,jsx,ts,tsx,md,html,css}": "prettier --write",
-  "*.{js,jsx,ts,tsx}": "eslint --fix"
-}
-```
+10. `yarn add -D eslint-plugin-unused-imports` to allow lint check on unused imports
+11. `npx husky-init && yarn   ` to install husky[](https://)
+12. `yarn add -D @commitlint/cli @commitlint/config-conventional  ` to install commitlint
+13. `echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js` to create the config file for commitlint
+14. `yarn husky add .husky/commit-msg  'yarn commitlint --edit ${1}'` to add linting on commit messages in Husky
+15. `yarn husky add .husky/pre-push 'yarn build'` to add a check that building the project works before trying to push new code to the repo
+16. Edit .husky/pre-commit and add `yarn lint-staged`, replacing the existing command (usually `npm test`)
+17. .eslintrc.json in root
+18. .prettierrc.json in root
+19. .lintstagedrc.json in root
 
 ## Configuring your IDE
 

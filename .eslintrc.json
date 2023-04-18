@@ -2,7 +2,8 @@
   "extends": [
     "airbnb",
     "airbnb-typescript",
-    "prettier"
+    "prettier",
+    "unused-imports"
   ],
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -13,7 +14,10 @@
     "react/function-component-definition": 0,
     "import/prefer-default-export": 0,
     "react/react-in-jsx-scope": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "unused-imports/no-unused-imports": "error",
+    // Due to buggy behaviour with Storybook
+    "import/no-extraneous-dependencies": 0
   },
   "ignorePatterns": ["*.config.js"]
 }
