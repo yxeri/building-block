@@ -18,7 +18,8 @@
     "react/require-default-props": 0,
     "unused-imports/no-unused-imports": "error",
     // Due to buggy behaviour with Storybook
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": 0,
+    "arrow-body-style": 0
   },
   "ignorePatterns": ["*.config.js"]
 }
